@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id = "app">
+  <choose content="Dell"></choose>
+  <choose content="good"></choose>
+</div>
+</body>
+
+<script>
+
+  Vue.prototype.bus = new Vue()
+  Vue.component("choose",{
+    props: {
+      content:{
+        type: String,
+        default: "hello"
+      }
+    },
+    data: function () {
+      return {
+        myContent: this.content
+      }
+    },
+    template: "<div @click='handClick'>{{myContent}}</div>" ,
+    methods: {
+      handClick: function () {
+        this.bus.$emit("change",this.myContent)
+      }
+    },
+    mounted: function () {
+        var this_ = this
+        this.bus.$on("change",function (value) {
+            this_.myContent = value
+        })
+    }
+  })
+
+  let vm = new Vue({
+    el: "#app"
+  })
+</script>
+</html>

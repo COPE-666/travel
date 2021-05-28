@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>输入框</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id = app>
+  <input type="text" v-model="value1">
+  <button @click="click">提交</button>
+  <ul>
+    <li v-for="item in list">{{item}}</li>
+  </ul>
+</div>
+
+  <script>
+    let app = new Vue({
+      el : "#app",
+      data: {
+        list: [1,2,3,4],
+        value1:''
+      },
+      methods: {
+        click: function () {
+          this.list.push(this.value1)
+          this.value1 = ''
+        }
+      }
+    })
+  </script>
+</body>
+</html>

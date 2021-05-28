@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <style>
+    .activated{
+      color: red;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+<!--使用class-->
+  <div id = app>
+    <div @click="handClick"
+          :class="[activated]">
+      hello world
+    </div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        activated: ""
+      },
+      methods: {
+        handClick: function () {
+          // if (this.activated === ""){
+          //   this.activated = "activated"
+          // }else{
+          //   this.activated = ""
+          // }
+          this.activated = this.activated === "activated" ? "" : "activated"
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>

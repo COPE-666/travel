@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>样式</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+  <div id = app>
+    <div @click="handClick"
+         :style="{fontSize: '20px'}">
+      hello world
+    </div>
+  </div>
+
+  <script>
+    var app = new Vue({
+      el: '#app',
+      data: {
+        styleObj: {
+          color: ""
+        }
+      },
+      methods: {
+        handClick: function () {
+            this.styleObj.color = this.styleObj.color === "" ? "red" : ""
+        }
+      }
+    })
+
+  </script>
+</body>
+</html>
