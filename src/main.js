@@ -3,12 +3,21 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import './assets/styles/reset.css'
 import './assets/styles/border.css'
 import fastClick from 'fastclick'
+import './assets/styles/iconfont.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/swiper-bundle.css'
+
 Vue.config.productionTip = false
 fastClick.attach(document.body)
+Vue.use(VueAwesomeSwiper, /* { default options with global component } */)
 
+Vue.use(ElementUI);
+Vue.use(router);
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
